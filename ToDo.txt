@@ -1,0 +1,5 @@
+- (18)
+- (17)
+- change smoothing-length -> softening
+- gennemlæs kode
+

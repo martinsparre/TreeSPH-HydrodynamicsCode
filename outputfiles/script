@@ -1,0 +1,6 @@
+#!/bin/bash
+for i in *.ascii
+do
+cat header.dat $i > ${i:0:10}.txt
+done
+

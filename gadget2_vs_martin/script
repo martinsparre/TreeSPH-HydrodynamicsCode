@@ -1,0 +1,49 @@
+reset
+set term post eps color "Sans Serif" 18
+
+set xlabel 'R'
+set logscale xy
+
+#rho
+set ylabel 'rho'
+
+set output 'logrho0.8.eps'
+set title 'Density at t=0.8'
+pl 'snapshot80.txt' u (sqrt($1**2+$2**2+$3**2)):10 pt 1 ps 2 title 'Gadget 2', 'file100080.ascii' u (sqrt($1**2+$2**2+$3**2)):9 pt 2 lt 3 ps 1 title 'Martin'
+unset output
+
+set output 'logrho3.0.eps'
+set title 'Density at t=3.0'
+pl 'snapshot300.txt' u (sqrt($1**2+$2**2+$3**2)):10 pt 1 ps 2 title 'Gadget 2', 'file100300.ascii' u (sqrt($1**2+$2**2+$3**2)):9 pt 2 lt 3 ps 1 title 'Martin'
+unset output
+
+
+#u
+set ylabel 'u'
+
+set output 'logu0.8.eps'
+set title 'Energy at t=0.8'
+pl 'snapshot80.txt' u (sqrt($1**2+$2**2+$3**2)):9 pt 1 ps 2 title 'Gadget 2', 'file100080.ascii' u (sqrt($1**2+$2**2+$3**2)):10 pt 2 lt 3 ps 1 title 'Martin'
+unset output
+
+
+set output 'logu3.0.eps'
+set title 'Energy at t=3.0'
+pl 'snapshot300.txt' u (sqrt($1**2+$2**2+$3**2)):9 pt 1 ps 2 title 'Gadget 2', 'file100300.ascii' u (sqrt($1**2+$2**2+$3**2)):10 pt 2 lt 3 ps 1 title 'Martin'
+unset output
+
+#A
+set ylabel 'A'
+
+set output 'logA0.8.eps'
+set yrange [0.01:0.3]
+set title 'Entropy at t=0.8'
+pl 'snapshot80.txt' u (sqrt($1**2+$2**2+$3**2)):(2./3.*$10**(-2./3.)*$9) pt 1 ps 2 title 'Gadget 2', 'file100080.ascii' u (sqrt($1**2+$2**2+$3**2)):12 pt 2 lt 3 ps 1 title 'Martin'
+unset output
+
+set output 'logA3.0.eps'
+set yrange [0.01:1.4]
+set title 'Entropy at t=3.0'
+pl 'snapshot300.txt' u (sqrt($1**2+$2**2+$3**2)):(2./3.*$10**(-2./3.)*$9) pt 1 ps 2 title 'Gadget 2', 'file100300.ascii' u (sqrt($1**2+$2**2+$3**2)):12 pt 2 lt 3 ps 1 title 'Martin'
+unset output
+
